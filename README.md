@@ -1,5 +1,5 @@
-# 一个课设
+# Documentation
 
-[文档](文档.pdf)
+[Document](Document.pdf)
 
 
