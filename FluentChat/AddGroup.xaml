@@ -9,18 +9,18 @@
 
     <StackPanel Spacing="16" Margin="0,8,0,0">
         <StackPanel Spacing="4">
-            <TextBlock>搜索</TextBlock>
+            <TextBlock>Search</TextBlock>
             <Grid ColumnSpacing="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBox PlaceholderText="请输入名称/群号" x:Name="TextBox_Search"/>
-                <Button Grid.Column="1" MinWidth="100" Style="{ThemeResource AccentButtonStyle}" VerticalAlignment="Stretch" Click="Search_Click">搜索</Button>
+                <TextBox PlaceholderText="Please enter a name/group ID" x:Name="TextBox_Search"/>
+                <Button Grid.Column="1" MinWidth="100" Style="{ThemeResource AccentButtonStyle}" VerticalAlignment="Stretch" Click="Search_Click">Search</Button>
             </Grid>
         </StackPanel>
         <StackPanel Spacing="4" x:Name="Panel_Search" Visibility="Collapsed">
-            <TextBlock>搜索结果</TextBlock>
+            <TextBlock>Search Results</TextBlock>
             <ItemsControl x:Name="ItemsControl_Search">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -34,12 +34,12 @@
                                 Description="{x:Bind local:AddGroup.GetGroupId((json:JsonObject))}">
                             <local:SettingItem.Operate>
                                 <StackPanel Orientation="Horizontal" Spacing="4" Visibility="{Binding Converter={StaticResource EqualConverter}}">
-                                    <Button Style="{ThemeResource AccentButtonStyle}" Content="加入">
+                                    <Button Style="{ThemeResource AccentButtonStyle}" Content="Join">
                                         <Button.Flyout>
                                             <Flyout>
                                                 <StackPanel Orientation="Horizontal" Spacing="4">
-                                                    <TextBox PlaceholderText="验证码" MinWidth="100" x:Name="Code"/>
-                                                    <Button Content="确定" Tag="{x:Bind}" Click="AddGroup_Click" />
+                                                    <TextBox PlaceholderText="Verification Code" MinWidth="100" x:Name="Code"/>
+                                                    <Button Content="Ok" Tag="{x:Bind}" Click="AddGroup_Click" />
                                                 </StackPanel>
                                             </Flyout>
                                         </Button.Flyout>
