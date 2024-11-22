@@ -8,19 +8,19 @@
     mc:Ignorable="d">
     <StackPanel Spacing="16" Margin="0,8,0,0">
         <StackPanel Spacing="4">
-            <TextBlock>搜索</TextBlock>
+            <TextBlock>Search</TextBlock>
             <Grid ColumnSpacing="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBox PlaceholderText="请输入邮箱/昵称" x:Name="TextBox_Search" TextChanged="TextBox_Search_TextChanged"/>
-                <Button Grid.Column="1" MinWidth="100" Style="{ThemeResource AccentButtonStyle}" VerticalAlignment="Stretch" Click="Search_Click">搜索</Button>
+                <TextBox PlaceholderText="Email/Username" x:Name="TextBox_Search" TextChanged="TextBox_Search_TextChanged"/>
+                <Button Grid.Column="1" MinWidth="100" Style="{ThemeResource AccentButtonStyle}" VerticalAlignment="Stretch" Click="Search_Click">Search</Button>
             </Grid>
         </StackPanel>
         <StackPanel>
             <StackPanel Spacing="4" Visibility="{Binding Text, ElementName=TextBox_Search, Converter={StaticResource EmptyToBoolReverseConverter}}">
-                <TextBlock Visibility="{Binding Visibility, ElementName=ItemsControl_Request}">好友请求</TextBlock>
+                <TextBlock Visibility="{Binding Visibility, ElementName=ItemsControl_Request}">Friend Requests</TextBlock>
                 <ItemsControl x:Name="ItemsControl_Request" Loaded="ItemsControl_Request_Loaded" Visibility="Collapsed">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -34,8 +34,8 @@
                                 Description="{Binding Converter={StaticResource JsonObjectConverter}, ConverterParameter=email}">
                                 <local:SettingItem.Operate>
                                     <StackPanel Orientation="Horizontal" Spacing="4">
-                                        <Button Tag="{Binding}" Style="{ThemeResource AccentButtonStyle}" Click="Accept_Click">接受</Button>
-                                        <Button Tag="{Binding}" Click="Refuse_Click">拒绝</Button>
+                                        <Button Tag="{Binding}" Style="{ThemeResource AccentButtonStyle}" Click="Accept_Click">Ok</Button>
+                                        <Button Tag="{Binding}" Click="Refuse_Click">Cancel</Button>
                                     </StackPanel>
                                 </local:SettingItem.Operate>
                             </local:SettingItem>
@@ -44,7 +44,7 @@
                 </ItemsControl>
             </StackPanel>
             <StackPanel Spacing="4" x:Name="Panel_Search" Visibility="Collapsed">
-                <TextBlock>搜索结果</TextBlock>
+                <TextBlock>Search Results</TextBlock>
                 <ItemsControl x:Name="ItemsControl_Search">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -62,7 +62,7 @@
                                             Style="{ThemeResource AccentButtonStyle}" 
                                             Tag="{Binding}" 
                                             Loaded="Button_Add_Loaded"
-                                            Click="Button_Add_Click">添加好友</Button>
+                                            Click="Button_Add_Click">Add Friend</Button>
                                     </StackPanel>
                                 </local:SettingItem.Operate>
                             </local:SettingItem>
