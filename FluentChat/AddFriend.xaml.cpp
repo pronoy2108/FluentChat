@@ -53,9 +53,9 @@ namespace winrt::FluentChat::implementation
 		auto stateDirect = json.GetNamedNumber(L"stateDirect");
 		auto friendInverse = json.GetNamedNumber(L"friendInverse");
 		button.IsEnabled(stateDirect == -1 || stateDirect == 1 && friendInverse == 0);
-		if (stateDirect == 0 && friendInverse == 1) button.Content(box_value(L"已发送请求"));
-		if (stateDirect == 0 && friendInverse == 0) button.Content(box_value(L"已添加"));
-		if (stateDirect == 2 || stateDirect == 2) button.Content(box_value(L"无法添加"));
+		if (stateDirect == 0 && friendInverse == 1) button.Content(box_value(L"Request Sent"));
+		if (stateDirect == 0 && friendInverse == 0) button.Content(box_value(L"Added"));
+		if (stateDirect == 2 || stateDirect == 2) button.Content(box_value(L"Unable to add"));
 	}
 
 	IAsyncAction AddFriend::Button_Add_Click(IInspectable const& sender, RoutedEventArgs const& e)
@@ -69,14 +69,14 @@ namespace winrt::FluentChat::implementation
 			JsonObject response = co_await TransportService().InvokeAsync(L"friend", L"addRequest", json);
 			if (response.GetNamedBoolean(L"success")) {
 				button.IsEnabled(false);
-				button.Content(box_value(L"已发送请求"));
+				button.Content(box_value(L"Request sent"));
 			}
 		}
 		else {
 			JsonObject response = co_await TransportService().InvokeAsync(L"friend", L"addAccept", json);
 			if (response.GetNamedBoolean(L"success")) {
 				button.IsEnabled(false);
-				button.Content(box_value(L"已添加"));
+				button.Content(box_value(L"Added"));
 			}
 		}
 	}
