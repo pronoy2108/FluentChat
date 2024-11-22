@@ -55,7 +55,7 @@ namespace winrt::FluentChat::implementation
 		button.IsEnabled(stateDirect == -1 || stateDirect == 1 && friendInverse == 0);
 		if (stateDirect == 0 && friendInverse == 1) button.Content(box_value(L"Request Sent"));
 		if (stateDirect == 0 && friendInverse == 0) button.Content(box_value(L"Added"));
-		if (stateDirect == 2 || stateDirect == 2) button.Content(box_value(L"Unable to add"));
+		if (stateDirect == 2 || stateDirect == 2) button.Content(box_value(L"Unable to add "));
 	}
 
 	IAsyncAction AddFriend::Button_Add_Click(IInspectable const& sender, RoutedEventArgs const& e)
@@ -69,7 +69,7 @@ namespace winrt::FluentChat::implementation
 			JsonObject response = co_await TransportService().InvokeAsync(L"friend", L"addRequest", json);
 			if (response.GetNamedBoolean(L"success")) {
 				button.IsEnabled(false);
-				button.Content(box_value(L"Request sent"));
+				button.Content(box_value(L"Request Sent"));
 			}
 		}
 		else {
